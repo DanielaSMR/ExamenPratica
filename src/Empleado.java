@@ -21,11 +21,11 @@ public abstract class Empleado {
     }
 
     public String generarCategoria() {
-        if(generarCodigo().contains("A1")){
+        if(generarCodigo().contains("A")){
             return "Medic@";
-        }else if(generarCodigo().contains("B2")){
+        }else if(generarCodigo().contains("B")){
             return "Enfermer@";
-        }else if(generarCodigo().contains("C3")){
+        }else if(generarCodigo().contains("C")){
             return "Auxiliar";
         }else{
             return "";
@@ -37,19 +37,27 @@ public abstract class Empleado {
     }
 
     public int sueldoBase() {
-        if(generarCodigo().contains("A1")){
-            return "Medic@";
-        }else if(generarCodigo().contains("B2")){
-            return "Enfermer@";
-        }else if(generarCodigo().contains("C3")){
-            return "Auxiliar";
+        if(generarCodigo().contains("A")){
+            return 2000;
+        }else if(generarCodigo().contains("B")){
+            return 1800;
+        }else if(generarCodigo().contains("C")){
+            return 1500;
         }else{
-            return "";
+            return 0;
         }
     }
 
     public int suplementos() {
-        return 1;
+        if(servicio.equals("transplante")){
+            return (sueldoBase() * 115)/100;
+        }else if(servicio.equals("cirugia")){
+            return (sueldoBase() * 110)/100;
+        }else if(servicio.equals("quemados")){
+            return (sueldoBase() * 105)/100;
+        }else{
+            return 0;
+        }
     }
 
     @Override
