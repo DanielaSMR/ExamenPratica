@@ -2,11 +2,9 @@ import java.util.Random;
 
 public class Enfermero extends Empleado{
     public static int totalEnfermeros;
-    private boolean discapacidad;
 
-    public Enfermero(String codigoEmpleado,String categoria,String nombreCompleto,String servicio,boolean turnicidad,boolean discapacidad){
+    public Enfermero(String codigoEmpleado,String categoria,String nombreCompleto,String servicio,boolean turnicidad){
         super(nombreCompleto, servicio, turnicidad);
-        this.discapacidad = discapacidad;
         totalEnfermeros ++;
 
     }
@@ -21,6 +19,10 @@ public class Enfermero extends Empleado{
         return codigo;
     }
 
+    @Override
+    public String toString(){
+        return super.toString() + "Total de enfermeros: " + totalEnfermeros; 
+    }
 
     public int getTotalEnfermeros() {
         return totalEnfermeros;
@@ -30,13 +32,6 @@ public class Enfermero extends Empleado{
         this.totalEnfermeros = totalEnfermeros;
     }
 
-    public boolean isDiscapacidad() {
-        return discapacidad;
-    }
-
-    public void setDiscapacidad(boolean discapacidad) {
-        this.discapacidad = discapacidad;
-    }
 
     
 }

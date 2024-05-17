@@ -4,11 +4,17 @@ public class Medico extends Empleado{
     public static int totalMedicos;
     private int numGuardias;
     
-    public Medico(String codigoEmpleado,String categoria,String nombreCompleto,String servicio,boolean turnicidad,int numGuardias) throws Exception{
+    public Medico(String nombreCompleto,String servicio,boolean turnicidad,int numGuardias) throws Exception{
         super(nombreCompleto, servicio, turnicidad);
         this.numGuardias = numGuardias;
         comprobarGuardias();
+        setSueldo(sueldoTotal());
         totalMedicos ++;
+    }
+
+    @Override
+    public String toString(){
+        return super.toString() + "Numero de guardias: " + numGuardias + "Total de medicos: " + totalMedicos; 
     }
 
     @Override
@@ -21,13 +27,27 @@ public class Medico extends Empleado{
         return codigo;
     }
 
+    @Override
+    public int sueldoTotal(){
+        try {
+            comprobarGuardias();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+            return getSueldo() + (numGuardias * 30);            
+        
+    }
+
     private void comprobarGuardias()throws Exception{
         if(numGuardias <= 5){
             this.numGuardias = numGuardias;
         }else{
             throw new Exception("Numero de guardias excedido"); 
         }
+       
     }
+    
+    
 
     public int getTotalMedicos() {
         return totalMedicos;

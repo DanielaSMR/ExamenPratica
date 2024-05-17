@@ -4,6 +4,7 @@ public abstract class Empleado {
     private String nombreCompleto;
     private String servicio;
     private boolean turnicidad;
+    private int sueldo;
     public static int totalEmpleados;
 
 
@@ -13,7 +14,9 @@ public abstract class Empleado {
         this.nombreCompleto = nombreCompleto;
         this.servicio = servicio;
         this.turnicidad = turnicidad;
+        this.sueldo = sueldoBase();
         totalEmpleados++;
+        sueldoTotal();
     }
 
     public String generarCodigo() {
@@ -32,7 +35,7 @@ public abstract class Empleado {
         }
     }
 
-    public int sueldoTotal() {
+    public int sueldoTotal(){
         return 1;
     }
 
@@ -50,20 +53,19 @@ public abstract class Empleado {
 
     public int suplementos() {
         if(servicio.equals("transplante")){
-            return (sueldoBase() * 115)/100;
+            return (sueldo * 115)/100;
         }else if(servicio.equals("cirugia")){
-            return (sueldoBase() * 110)/100;
+            return (sueldo * 110)/100;
         }else if(servicio.equals("quemados")){
-            return (sueldoBase() * 105)/100;
-        }else{
-            return 0;
+            return (sueldo * 105)/100;
         }
+        return sueldo;
     }
 
     @Override
     public String toString() {
-        return "";
-    }
+        return "codigo empleado: " + codigoEmpleado + " categoria: " + categoria + " nombre: " + nombreCompleto + " servicio: " + servicio + " turnicidad: "
+        + turnicidad + " sueldo: " + sueldoTotal() + " total empleados: " + totalEmpleados;   }
 
     public String getCategoria() {
         return categoria;
@@ -109,6 +111,15 @@ public abstract class Empleado {
         return codigoEmpleado;
     }
 
+    public int getSueldo() {
+        return sueldo;
+    }
+
+    public void setSueldo(int sueldo) {
+        this.sueldo = sueldo;
+    }
+
+    
     
 
 }
