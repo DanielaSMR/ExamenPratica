@@ -23,6 +23,10 @@ public abstract class Empleado {
         return "";
     }
 
+    public void comprobarCodigo(){
+        
+    }
+
     public String generarCategoria() {
         if(generarCodigo().contains("A")){
             return "Medic@";

@@ -20,8 +20,10 @@ public class Medico extends Empleado{
     @Override
     public String generarCodigo(){
         String codigo = "A1" + (0000 + totalMedicos);
-        for(int i = 0;i < totalMedicos;i++){
-            //Comprobar si el codigo se repite
+        for(Empleado empleado : Main.empleados){
+            if(empleado.getCodigoEmpleado().equals(codigo)){
+                codigo = codigo + 1;
+            }
         }
         return codigo;
     }

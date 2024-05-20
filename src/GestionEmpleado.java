@@ -3,6 +3,7 @@ import java.util.*;
 public class GestionEmpleado{
     public static void añadirEmpleado() throws NumberFormatException, Exception{
         //Añadir try y catch
+        //Añadir excepciones
 
         Auxiliar a1 = new Auxiliar("Sara","Transplante", false,false);
         Auxiliar a2 = new Auxiliar("Pepe","Cirugia", true,true);
@@ -66,7 +67,7 @@ public class GestionEmpleado{
         }
     }
 
-    public static void eliminarEmpleado() throws Exception{//Arreglar
+    public static void eliminarEmpleado() throws Exception{
         mostrarEmpleados();
         System.out.println("Dime el codigo del empleado");
         String emple = IO.pedirTexto();
