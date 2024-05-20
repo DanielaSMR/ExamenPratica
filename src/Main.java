@@ -1,45 +1,44 @@
+import java.util.ArrayList;
+
 public class Main{
+
+    public static ArrayList<Empleado> empleados = new ArrayList<>();
+
     public static void main(String[] args) throws Exception {
         
-
-        Medico uno = new Medico("Dan", "a", true, 4);
-        Medico dos = new Medico("A", "a", false, 4);
-
-        System.out.println(uno.toString());
 
         int eleccion;
         do{
             System.out.println("Elige una opcion\n"+
             "1- Dar de alta un empleado en el sistema:\n"+
-            "2- Búsqueda de libros dentro del sistema\n"+
-            "3- Dar de baja un libro en el sistema.\n"+
-            "4- Alquiler de un libro por un usuario.\n"+
-           "5- Devolución de un libro por un usuario.\n"+
-            "6- Gestión de empleados/as de la biblioteca.\n"+
-            "7- Gestión de usuarios/as de la biblioteca.\n"+
-            "8- Salir del sistema.");
+            "2- Mostrar empleados dentro del sistema:\n"+
+            "3- Num empleados:\n"+
+            "4- Num empleados por categoria:\n"+
+            "5- Mostrar un unico empleado con detalles:\n"+
+            "6- Eliminar empleado\n"+
+            "7- Ordenar coleccion por codigo.\n"+
+            "8- Modificar las guardias del medico.\n" +
+            "9- Salir del sistema");
             eleccion = (int)Integer.parseInt(IO.pedirTexto());
             switch (eleccion) {
-                case 1://comprobar si es correcta
-                    GestionLibro.nuevoLibro(st);
+                case 1:
+                    GestionEmpleado.añadirEmpleado();
                     break;
                 case 2:
-                    GestionLibro.buscarLibro("2",st);
+                    GestionEmpleado.mostrarEmpleados();;
                     break;
                 case 3:
-                    GestionLibro.buscarLibro("3",st);
+                    GestionEmpleado.mostrarNumEmple();
                     break;
                 case 4:
-                    GestionLibro.alquilarLibro(st);
+                    GestionEmpleado.mostrarNumCategoria();
                     break;
                 case 5:
-                    GestionLibro.devolucionLibro(st);
+                    GestionEmpleado.mostrarEmpleCategoria();
                     break; 
                 case 6:
-                    GestionEmple.buscarEmpleado(st);
                     break;
                 case 7:
-                    GestionUsu.buscarUsuario(st);
                     break;
                 case 8:
                     System.out.println("Saliendo...");

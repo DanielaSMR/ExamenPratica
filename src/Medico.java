@@ -20,7 +20,7 @@ public class Medico extends Empleado{
     @Override
     public String generarCodigo(){
         Random random = new Random();
-        String codigo = "A1" + (1000 + random.nextInt(9000));
+        String codigo = "A1" + totalMedicos;
         for(int i = 0;i < totalMedicos;i++){
             //Comprobar si el codigo se repite
         }
