@@ -4,7 +4,7 @@ public class Auxiliar extends Empleado{
     public static int totalAuxiliares;
     private boolean discapacidad;
 
-    public Auxiliar(String nombreCompleto,String servicio,boolean turnicidad,int totalAuxiliares,boolean discapacidad){
+    public Auxiliar(String nombreCompleto,String servicio,boolean turnicidad,boolean discapacidad){
         super(nombreCompleto, servicio, turnicidad);
         this.discapacidad = discapacidad;
         totalAuxiliares ++;
@@ -12,8 +12,7 @@ public class Auxiliar extends Empleado{
 
     @Override
     public String generarCodigo(){
-        Random random = new Random();
-        String codigo = "C3" + totalAuxiliares;
+        String codigo = "C3" + (0000 + totalAuxiliares);
         for(int i = 0;i < totalAuxiliares;i++){
             //Comprobar si el codigo se repite
         }

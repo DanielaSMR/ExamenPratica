@@ -37,10 +37,15 @@ public class Main{
                     GestionEmpleado.mostrarEmpleCategoria();
                     break; 
                 case 6:
+                    GestionEmpleado.eliminarEmpleado();
                     break;
                 case 7:
+                    GestionEmpleado.ordColeccion();
                     break;
                 case 8:
+                    GestionEmpleado.modificarGuardias();
+                    break;
+                case 9:
                     System.out.println("Saliendo...");
                     break;        
                 default:

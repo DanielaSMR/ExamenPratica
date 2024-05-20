@@ -11,8 +11,7 @@ public class Enfermero extends Empleado{
 
     @Override
     public String generarCodigo(){
-        Random random = new Random();
-        String codigo = "B2" + totalEnfermeros;
+        String codigo = "B2" + (0000 + totalEnfermeros);
         for(int i = 0;i < totalEnfermeros;i++){
             //Comprobar si el codigo se repite
         }
