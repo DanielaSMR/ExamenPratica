@@ -14,12 +14,15 @@ public class Medico extends Empleado{
 
     @Override
     public String toString(){
-        return super.toString() + "Numero de guardias: " + numGuardias + "Total de medicos: " + totalMedicos; 
+        return super.toString() + " Numero de guardias: " + numGuardias + " Total de medicos: " + totalMedicos; 
     }
 
     @Override
     public String generarCodigo(){
-        String codigo = "A1" + (0000 + totalMedicos);
+        String codigo = "A1";
+        if(totalMedicos < 10) codigo += "000" + totalMedicos;
+        if(totalMedicos < 100 && totalMedicos >= 10) codigo += "00" + totalMedicos;
+        if(totalMedicos < 1000 && totalMedicos >= 100) codigo += "0" + totalMedicos;
         return codigo;
     }
 

@@ -23,10 +23,6 @@ public abstract class Empleado {
         return "";
     }
 
-    public void comprobarCodigo(){
-        
-    }
-
     public String generarCategoria() {
         if(generarCodigo().contains("A")){
             return "Medic@";
@@ -69,7 +65,8 @@ public abstract class Empleado {
     @Override
     public String toString() {
         return "codigo empleado: " + codigoEmpleado + " categoria: " + categoria + " nombre: " + nombreCompleto + " servicio: " + servicio + " turnicidad: "
-        + turnicidad + " sueldo: " + sueldoTotal() + " total empleados: " + totalEmpleados;   }
+        + turnicidad + " sueldo: " + sueldoTotal() + " total empleados: " + totalEmpleados;
+    }
 
     public String getCategoria() {
         return categoria;

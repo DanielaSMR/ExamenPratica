@@ -11,13 +11,16 @@ public class Enfermero extends Empleado{
 
     @Override
     public String generarCodigo(){
-        String codigo = "B2" + (0000 + totalEnfermeros);
+        String codigo = "B2";
+        if(totalEnfermeros < 10) codigo += "000" + totalEnfermeros;
+        if(totalEnfermeros < 100 && totalEnfermeros >= 10) codigo += "00" + totalEnfermeros;
+        if(totalEnfermeros < 1000 && totalEnfermeros >= 100) codigo += "0" + totalEnfermeros;
         return codigo;
     }
 
     @Override
     public String toString(){
-        return super.toString() + "Total de enfermeros: " + totalEnfermeros; 
+        return super.toString() + " Total de enfermeros: " + totalEnfermeros; 
     }
 
     public int getTotalEnfermeros() {

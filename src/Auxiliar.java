@@ -12,7 +12,10 @@ public class Auxiliar extends Empleado{
 
     @Override
     public String generarCodigo(){
-        String codigo = "C3" + (0000 + totalAuxiliares);
+        String codigo = "C3";
+        if(totalAuxiliares < 10) codigo += "000" + totalAuxiliares;
+        if(totalAuxiliares < 100 && totalAuxiliares >= 10) codigo += "00" + totalAuxiliares;
+        if(totalAuxiliares < 1000 && totalAuxiliares >= 100) codigo += "0" + totalAuxiliares;
         return codigo;
     }
 
@@ -26,7 +29,7 @@ public class Auxiliar extends Empleado{
 
     @Override
     public String toString(){
-        return super.toString() + "Discapacidad: " + discapacidad + "Total de Auxiliares: " + totalAuxiliares; 
+        return super.toString() + " Discapacidad: " + discapacidad + " Total de Auxiliares: " + totalAuxiliares; 
     }
 
     public int getTotalAuxiliares() {
