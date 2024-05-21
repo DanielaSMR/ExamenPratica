@@ -55,4 +55,5 @@ public class Main{
             }
         }while(eleccion != 8);
     }
+    //Tiene que ser funcional con la base de datos
 }
