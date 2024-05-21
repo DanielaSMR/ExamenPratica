@@ -12,11 +12,6 @@ public class Enfermero extends Empleado{
     @Override
     public String generarCodigo(){
         String codigo = "B2" + (0000 + totalEnfermeros);
-        for(Empleado empleado : Main.empleados){
-            if(empleado.getCodigoEmpleado().equals(codigo)){
-                codigo = codigo + 1;
-            }
-        }
         return codigo;
     }
 

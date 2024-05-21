@@ -20,30 +20,24 @@ public class Medico extends Empleado{
     @Override
     public String generarCodigo(){
         String codigo = "A1" + (0000 + totalMedicos);
-        for(Empleado empleado : Main.empleados){
-            if(empleado.getCodigoEmpleado().equals(codigo)){
-                codigo = codigo + 1;
-            }
-        }
         return codigo;
     }
 
     @Override
     public int sueldoTotal(){
-        try {
-            comprobarGuardias();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-            return getSueldo() + (numGuardias * 30);            
+        return getSueldo() + (numGuardias * 30);            
         
     }
 
-    private void comprobarGuardias()throws Exception{
-        if(numGuardias <= 5){
-            this.numGuardias = numGuardias;
-        }else{
-            throw new Exception("Numero de guardias excedido"); 
+    private void comprobarGuardias(){
+        try {
+            if(numGuardias <= 5){
+                this.numGuardias = numGuardias;
+            }else{
+                throw new Exception("Numero de guardias excedido"); 
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
        
     }

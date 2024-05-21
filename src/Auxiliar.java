@@ -13,11 +13,6 @@ public class Auxiliar extends Empleado{
     @Override
     public String generarCodigo(){
         String codigo = "C3" + (0000 + totalAuxiliares);
-        for(Empleado empleado : Main.empleados){
-            if(empleado.getCodigoEmpleado().equals(codigo)){
-                codigo = codigo + 1;
-            }
-        }
         return codigo;
     }
 

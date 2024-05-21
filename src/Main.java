@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Main{
 
     public static ArrayList<Empleado> empleados = new ArrayList<>();
+    public static ArrayList<Empleado> empleadoEliminado = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
         
@@ -37,10 +38,10 @@ public class Main{
                     GestionEmpleado.mostrarEmpleCategoria();
                     break; 
                 case 6:
-                    GestionEmpleado.eliminarEmpleado();
+                    GestionEmpleado.eliminarEmpleado(empleados,empleadoEliminado);
                     break;
                 case 7:
-                    GestionEmpleado.ordColeccion();
+                    GestionEmpleado.ordColeccion(empleados);
                     break;
                 case 8:
                     GestionEmpleado.modificarGuardias();

@@ -10,7 +10,7 @@ public class GestionEmpleado{
         Enfermero e1 = new Enfermero("Tadeo", "Urgencia", false);
         Enfermero e2 = new Enfermero("Carla", "Quemado", true);
         Medico m1 = new Medico("Fernando", null, false, 2);
-        Medico m2 = new Medico("Pepa","Paritorio",true,4);
+        Medico m2 = new Medico("Pepa","Paritorio",true,6);
         Main.empleados.add(a1); 
         Main.empleados.add(a2); 
         Main.empleados.add(e1); 
@@ -61,31 +61,53 @@ public class GestionEmpleado{
         mostrarEmpleados();
         System.out.println("Dime el codigo del empleado");
         String emple = IO.pedirTexto();
-        for(Empleado empleado : Main.empleados){
-            if(empleado.getCodigoEmpleado().equals(emple))
-                System.out.println(empleado);
+        try{
+            for(Empleado empleado : Main.empleados){
+                if(empleado.getCodigoEmpleado().equals(emple)){
+                    System.out.println(empleado);
+                }else{
+                    throw new Exception("Empleado no encontrado entre los activos"); 
+                }
+            }
+            for(Empleado empleado2 : Main.empleadoEliminado){
+                if(empleado2.getCodigoEmpleado().equals(emple)){
+                    System.out.println(empleado2 + " El empleado esta ELIMINADO");
+                }else{
+                    throw new Exception("Empleado no encontrado entre los eliminados"); 
+                }
+            } 
+            
+        }catch(Exception ex){
+            ex.printStackTrace();
         }
     }
 
-    public static void eliminarEmpleado() throws Exception{
+    public static void eliminarEmpleado(ArrayList<Empleado> empleados,ArrayList<Empleado> empleadosEliminados) throws Exception{
         mostrarEmpleados();
         System.out.println("Dime el codigo del empleado");
         String emple = IO.pedirTexto();
 
-        Iterator<Empleado> iterator = Main.empleados.iterator();
-        while (iterator.hasNext()) {
-            Empleado empleado = iterator.next();
-            if (empleado.getCodigoEmpleado().equals(emple)) {
-                System.out.println("Se eliminará el empleado " + empleado.getNombreCompleto());
-                iterator.remove(); // Eliminar el empleado usando el iterador
+        Iterator<Empleado> iterator = empleados.iterator();//Recorre el array
+        try{
+            while (iterator.hasNext()) {
+                Empleado empleado = iterator.next();
+                if (empleado.getCodigoEmpleado().equals(emple)) {
+                    empleadosEliminados.add(empleado);//Añadirlo a la arrayList de eliminados
+                    System.out.println("Se eliminará el empleado " + empleado.getNombreCompleto());
+                    iterator.remove(); // Eliminar el empleado usando el iterador
+                }else{
+                    throw new Exception("Empleado no encontrado entre los activos"); 
+                }
             }
+        }catch(Exception ex){
+            ex.printStackTrace();
         }
     }
 
-    public static void ordColeccion(){
+    public static void ordColeccion(ArrayList<Empleado> empleados){
         System.out.println("Lista actual");
         mostrarEmpleados();
-        Collections.sort(Main.empleados, new Comparator<Empleado>() {
+        Collections.sort(empleados, new Comparator<Empleado>() {
             @Override
             public int compare(Empleado o1, Empleado o2) {
                 return o1.getCodigoEmpleado().compareTo(o2.getCodigoEmpleado()); 
@@ -93,7 +115,7 @@ public class GestionEmpleado{
 
         });
         System.out.println("Lista ordenada");
-        for(Empleado empleado : Main.empleados){
+        for(Empleado empleado : empleados){
             System.out.println("Posicion: " + empleado.getCategoria() + "Codigo: " + empleado.getCodigoEmpleado() + "Nombre: " + empleado.getNombreCompleto());
         }
     
@@ -101,13 +123,16 @@ public class GestionEmpleado{
 
     public static void modificarGuardias() throws Exception{
         for(Empleado empleado : Main.empleados){
-            if(empleado.getCodigoEmpleado().contains("A"))
-            System.out.println("Posicion: " + empleado.getCategoria() + " Codigo: " + empleado.getCodigoEmpleado() + " Nombre: " + empleado.getNombreCompleto());
+            if(empleado instanceof Medico){//Empleado dentro de Medico
+                System.out.println("Posicion: " + empleado.getCategoria() + " Codigo: " + empleado.getCodigoEmpleado() + " Nombre: " + empleado.getNombreCompleto());
+            }else{
+                System.out.println("No existen Medicos");
+            }
         }
         String emple = "";
         System.out.println("Dime el codigo del empleado que vas a modificar");
         emple = IO.pedirTexto();
-        for(Empleado empleado : Main.empleados){//preguntar a marcos sobre el arraylist empleados
+        for(Empleado empleado : Main.empleados){
             if(empleado instanceof Medico && empleado.getCodigoEmpleado().equals(emple)){
                 System.out.println("Cuantos dias de guardia?(Recuerda esta prohibido mas de 5 dias)");
                 int dias = IO.pedirEntero();
