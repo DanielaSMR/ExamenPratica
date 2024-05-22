@@ -3,18 +3,18 @@ import java.util.*;
 public class GestionEmpleado{
     public static void añadirEmpleado() throws NumberFormatException, Exception{
 
-        /*Auxiliar a1 = new Auxiliar("Sara","Transplante", false,false);
-        Auxiliar a2 = new Auxiliar("Pepe","Cirugia", true,true);
-        Enfermero e1 = new Enfermero("Tadeo", "Urgencia", false);
-        Enfermero e2 = new Enfermero("Carla", "Quemado", true);
-        Medico m1 = new Medico("Fernando", null, false, 2);
-        Medico m2 = new Medico("Pepa","Paritorio",true,4);
-        Main.empleados.add(a1); 
-        Main.empleados.add(a2); 
-        Main.empleados.add(e1); 
-        Main.empleados.add(e2); 
-        Main.empleados.add(m1); 
-        Main.empleados.add(m2);*/
+        // Auxiliar a1 = new Auxiliar("Sara","Transplante", false,false);
+        // Auxiliar a2 = new Auxiliar("Pepe","Cirugia", true,true);
+        // Enfermero e1 = new Enfermero("Tadeo", "Urgencia", false);
+        // Enfermero e2 = new Enfermero("Carla", "Quemado", true);
+        // Medico m1 = new Medico("Fernando", null, false, 2);
+        // Medico m2 = new Medico("Pepa","Paritorio",true,4);
+        // Main.empleados.add(a1); 
+        // Main.empleados.add(a2); 
+        // Main.empleados.add(e1); 
+        // Main.empleados.add(e2); 
+        // Main.empleados.add(m1); 
+        // Main.empleados.add(m2);
 
         System.out.println("Dime el nombre");
         String nombre = ES.pedirTexto();
@@ -45,7 +45,7 @@ public class GestionEmpleado{
             System.out.println("Posicion: " + empleado.getCategoria() + " Codigo: " + empleado.getCodigoEmpleado() + " Nombre: " + empleado.getNombreCompleto());
         }
         for(Empleado empleado2 : Main.empleadoEliminado){
-            System.out.println("Posicion: " + empleado2.getCategoria() + " Codigo: " + empleado2.getCodigoEmpleado() + " Nombre: " + empleado2.getNombreCompleto() + "\nEl empleado esta ELIMINADO");
+            System.out.println("Posicion: " + empleado2.getCategoria() + " Codigo: " + empleado2.getCodigoEmpleado() + " Nombre: " + empleado2.getNombreCompleto() + "ELIMINADO");
         }
     }
 
