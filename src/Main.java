@@ -20,7 +20,7 @@ public class Main{
             "7- Ordenar coleccion por codigo.\n"+
             "8- Modificar las guardias del medico.\n" +
             "9- Salir del sistema");
-            eleccion = (int)Integer.parseInt(IO.pedirTexto());
+            eleccion = (int)Integer.parseInt(ES.pedirTexto());
             switch (eleccion) {
                 case 1:
                     GestionEmpleado.añadirEmpleado();

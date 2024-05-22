@@ -23,6 +23,11 @@ public class Enfermero extends Empleado{
         return super.toString() + " Total de enfermeros: " + totalEnfermeros; 
     }
 
+    @Override
+    public int sueldoTotal(){
+        return getSueldo();            
+    }
+
     public int getTotalEnfermeros() {
         return totalEnfermeros;
     }

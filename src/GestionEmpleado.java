@@ -3,7 +3,7 @@ import java.util.*;
 public class GestionEmpleado{
     public static void añadirEmpleado() throws NumberFormatException, Exception{
 
-        Auxiliar a1 = new Auxiliar("Sara","Transplante", false,false);
+        /*Auxiliar a1 = new Auxiliar("Sara","Transplante", false,false);
         Auxiliar a2 = new Auxiliar("Pepe","Cirugia", true,true);
         Enfermero e1 = new Enfermero("Tadeo", "Urgencia", false);
         Enfermero e2 = new Enfermero("Carla", "Quemado", true);
@@ -14,30 +14,30 @@ public class GestionEmpleado{
         Main.empleados.add(e1); 
         Main.empleados.add(e2); 
         Main.empleados.add(m1); 
-        Main.empleados.add(m2); 
+        Main.empleados.add(m2);*/
 
-       /*System.out.println("Dime el nombre");
-        String nombre = IO.pedirTexto();
+        System.out.println("Dime el nombre");
+        String nombre = ES.pedirTexto();
         System.out.println("Dime el servicio");
-        String servicio = IO.pedirTexto();
+        String servicio = ES.pedirTexto();
         System.out.println("Tiene turnicidad?");
-        Boolean turnicidad = IO.pedirBoolean();
+        Boolean turnicidad = ES.pedirBoolean();
         System.out.println("Que tipo de empleado vas a crear?\n 1-Auxiliar 2-Enfermero 3-Medico");
-        int eleccion = (int)Integer.parseInt(IO.pedirTexto());
+        int eleccion = (int)Integer.parseInt(ES.pedirTexto());
         if(eleccion == 1){
             System.out.println("tiene discapacidad?");
-            Boolean discapacidad = IO.pedirBoolean();
-            Auxiliar auxiliar = new Auxiliar(nombre, servicio, turnicidad, eleccion, discapacidad);
+            Boolean discapacidad = ES.pedirBoolean();
+            Auxiliar auxiliar = new Auxiliar(nombre, servicio, turnicidad, discapacidad);
             Main.empleados.add(auxiliar);
         }else if(eleccion == 2){
             Enfermero enfermero = new Enfermero(nombre, servicio, turnicidad);
             Main.empleados.add(enfermero);
         }else if(eleccion == 3){
             System.out.println("Numero de guardias");
-            int numGuardias = IO.pedirEntero();
+            int numGuardias = ES.pedirRango(1, 5);
             Medico medico = new Medico(nombre, servicio, turnicidad, numGuardias);
             Main.empleados.add(medico);
-        }*/
+        }
     }
 
     public static void mostrarEmpleados(){
@@ -47,7 +47,7 @@ public class GestionEmpleado{
     }
 
     public static void mostrarNumEmple(){
-        System.out.println(Empleado.totalEmpleados);
+        System.out.println("Total Empleados:" + Empleado.totalEmpleados);
     }
 
     public static void mostrarNumCategoria(){
@@ -58,7 +58,7 @@ public class GestionEmpleado{
     public static void mostrarEmpleCategoria() throws Exception{
         mostrarEmpleados();
         System.out.println("Dime el codigo del empleado");
-        String emple = IO.pedirTexto();
+        String emple = ES.pedirTexto();
         boolean encontrado = false;
         try{
             for(Empleado empleado : Main.empleados){
@@ -86,7 +86,7 @@ public class GestionEmpleado{
     public static void eliminarEmpleado(ArrayList<Empleado> empleados,ArrayList<Empleado> empleadosEliminados) throws Exception{
         mostrarEmpleados();
         System.out.println("Dime el codigo del empleado");
-        String emple = IO.pedirTexto();
+        String emple = ES.pedirTexto();
 
         Iterator<Empleado> iterator = empleados.iterator();//Recorre el array
         try{
@@ -113,6 +113,7 @@ public class GestionEmpleado{
             }
 
         });
+        // empleados.sort(Comparator.comparing(Empleado::getCodigoEmpleado));
         System.out.println("Lista ordenada");
         for(Empleado empleado : empleados){
             System.out.println("Posicion: " + empleado.getCategoria() + "Codigo: " + empleado.getCodigoEmpleado() + "Nombre: " + empleado.getNombreCompleto());
@@ -130,11 +131,11 @@ public class GestionEmpleado{
         }
         String emple = "";
         System.out.println("Dime el codigo del empleado que vas a modificar");
-        emple = IO.pedirTexto();
+        emple = ES.pedirTexto();
         for(Empleado empleado : Main.empleados){
             if(empleado instanceof Medico && empleado.getCodigoEmpleado().equals(emple)){
                 System.out.println("Cuantos dias de guardia?(Recuerda esta prohibido mas de 5 dias)");
-                int dias = IO.pedirEntero();
+                int dias = ES.pedirEntero();
                 ((Medico) empleado).setNumGuardias(dias);
                 System.out.println(empleado.toString());
             }
