@@ -44,6 +44,9 @@ public class GestionEmpleado{
         for(Empleado empleado : Main.empleados){
             System.out.println("Posicion: " + empleado.getCategoria() + " Codigo: " + empleado.getCodigoEmpleado() + " Nombre: " + empleado.getNombreCompleto());
         }
+        for(Empleado empleado2 : Main.empleadoEliminado){
+            System.out.println("Posicion: " + empleado2.getCategoria() + " Codigo: " + empleado2.getCodigoEmpleado() + " Nombre: " + empleado2.getNombreCompleto() + "\nEl empleado esta ELIMINADO");
+        }
     }
 
     public static void mostrarNumEmple(){
